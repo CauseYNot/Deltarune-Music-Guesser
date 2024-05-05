@@ -121,6 +121,7 @@ async def guess(ctx, guess):
         if rounds_to_play == 0:
             await ctx.send(embed=Embed(title='Quiz finished!', colour=0xffffff))
             await Paginator(pages=pages_for_scores(guesses, scores, total_rounds)).respond(ctx)
+            guesses, scores = {}, {}
             await ctx.voice_client.disconnect()
         else:
             await ctx.send(embed=Embed(title=f'Starting round! {rounds_to_play} rounds left', colour=0xffffff))
